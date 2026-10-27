@@ -67,39 +67,76 @@ export const SERVICES = [
   },
 ]
 
-// Les deux premiers sont de vrais projets. Remplacez les deux suivants par vos réalisations.
+// Photos : déposez vos fichiers dans public/realisations/ puis listez-les dans "images".
+// "pos" règle le cadrage de la vignette (x% y%). Le premier élément doit être une image.
+const R = '/realisations/'
+
 export const PROJECTS = [
   {
+    id: 'marmite',
+    kind: 'Site vitrine · Restauration',
+    title: 'La Marmite Dorée',
+    text: 'Site haut de gamme pour un restaurant-traiteur, conçu pour valoriser ses menus et ses prestations.',
+    tags: ['Site web', 'Design premium', 'Traiteur'],
+    span: 'lg:col-span-3',
+    images: [
+      { type: 'image', src: R + 'marmite-doree.webp', pos: '50% 50%', alt: 'Visuel des plats du restaurant-traiteur La Marmite Dorée' },
+      { type: 'image', src: R + 'marmite-facade.webp', pos: '50% 25%', alt: 'Devanture du restaurant La Marmite Dorée' },
+    ],
+  },
+  {
+    id: 'boutique',
+    kind: 'Installation · Sécurité',
+    title: "Vidéosurveillance d'une boutique",
+    text: "Caméras IP posées à l'extérieur et à l'intérieur, câbles protégés sous goulotte et affichage des caméras sur un écran de supervision.",
+    tags: ['Caméras IP', 'Câblage', 'Supervision'],
+    span: 'lg:col-span-3',
+    images: [
+      { type: 'image', src: R + 'boutique-camera-auvent.webp', pos: '50% 43%', alt: "Caméra IP fixée sous l'auvent de la boutique" },
+      { type: 'image', src: R + 'boutique-facade.webp', pos: '50% 20%', alt: 'Façade de la boutique équipée' },
+      { type: 'image', src: R + 'boutique-camera-dome.webp', pos: '50% 35%', alt: "Caméra dôme dans l'angle d'une pièce, câble sous goulotte" },
+      { type: 'image', src: R + 'boutique-camera-angle.webp', pos: '50% 40%', alt: "Caméra extérieure fixée dans l'angle de l'auvent" },
+      { type: 'image', src: R + 'boutique-supervision.webp', pos: '50% 30%', alt: 'Écran de supervision avec les caméras en direct' },
+    ],
+  },
+  {
+    id: 'magasin',
+    kind: 'Installation · Sécurité',
+    title: "Vidéosurveillance d'un magasin",
+    text: "Caméras dôme au plafond et écran de supervision à quatre vues pour surveiller les rayons et l'entrée.",
+    tags: ['Caméras dôme', '4 vues', 'Supervision'],
+    span: 'lg:col-span-2',
+    images: [
+      { type: 'image', src: R + 'magasin-camera-dome.webp', pos: '50% 20%', alt: 'Caméra dôme fixée au plafond au-dessus des rayons' },
+      { type: 'image', src: R + 'magasin-supervision.webp', pos: '50% 45%', alt: 'Écran de supervision affichant quatre caméras' },
+      {
+        type: 'video',
+        src: R + 'magasin-presentation.mp4',
+        poster: R + 'magasin-presentation.webp',
+        alt: "Vidéo de l'installation et de l'écran de supervision",
+      },
+    ],
+  },
+  {
+    id: 'sunutraffic',
     icon: 'nav',
     tone: 'wv-1',
     kind: 'Application mobile · Mobilité',
     title: 'SunuTraffic',
     text: 'Application de navigation avec trafic en temps réel pour les trajets quotidiens à Dakar.',
     tags: ['Mobile', 'Temps réel', 'Cartographie'],
+    span: 'lg:col-span-2',
   },
   {
-    icon: 'star',
-    tone: 'wv-2',
-    kind: 'Site vitrine · Restauration',
-    title: 'La Marmite Dorée',
-    text: 'Site haut de gamme pour un restaurant-traiteur, conçu pour valoriser ses menus et ses prestations.',
-    tags: ['Site web', 'Design premium', 'Traiteur'],
-  },
-  {
-    icon: 'layers',
-    tone: 'wv-3',
-    kind: 'Application web · Logistique',
-    title: 'Plateforme logistique',
-    text: 'Suivi des flux, des livraisons et des équipes réunis dans une seule interface de gestion.',
-    tags: ['React', 'Node', 'Tableau de bord'],
-  },
-  {
-    icon: 'cam',
-    tone: 'wv-4',
-    kind: 'Installation · Sécurité',
-    title: 'Vidéosurveillance multi-sites',
-    text: "Déploiement de caméras IP, d'enregistreurs NVR et d'un réseau dédié, avec supervision à distance.",
-    tags: ['Hikvision', 'Dahua', 'PoE'],
+    id: 'affiche',
+    kind: 'Communication · Identité',
+    title: 'Affiche DDS Tech & Security',
+    text: "Identité visuelle et affiche des services de développement web et mobile de DDS.",
+    tags: ['Identité', 'Affiche', 'Web & mobile'],
+    span: 'md:col-span-2 lg:col-span-2',
+    images: [
+      { type: 'image', src: R + 'dds-affiche.webp', pos: '50% 0%', alt: 'Affiche DDS Tech & Security : développement web et mobile' },
+    ],
   },
 ]
 

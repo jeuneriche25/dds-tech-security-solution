@@ -36,7 +36,7 @@ src/
 
 ## À personnaliser avant la mise en ligne
 
-1. **Réalisations** (`src/data/content.js`, `PROJECTS`) : SunuTraffic et La Marmite Dorée sont de vrais projets. Remplacez « Plateforme logistique » et « Vidéosurveillance multi-sites » par vos chantiers réels, idéalement avec des captures.
+1. **Réalisations** (`src/data/content.js`, `PROJECTS`) : chaque projet a une galerie plein écran (flèches, clavier, balayage tactile, vidéo). Pour ajouter des photos, déposez-les en `.webp` ou `.jpg` dans `public/realisations/` (idéalement 1200 px de large, moins de 300 Ko), puis ajoutez une ligne `{ type: 'image', src: R + 'nom.webp', alt: 'Description' }` dans `images` du projet. Pour un nouveau projet, copiez un bloc existant. Les légendes sont à relire et à corriger si besoin.
 2. **Chiffres et certifications** (`STATS`, `WHY`) : vérifiez que « 500+ interventions » et « certifié Hikvision/Dahua » sont justifiables.
 3. **Mentions légales** (`Footer.jsx`) : ajoutez vos informations d'immatriculation (NINEA, RCCM, etc.).
 4. **Formulaire** (`Contact.jsx`) : il prépare un message WhatsApp, rien n'est envoyé automatiquement. Pour recevoir les demandes par e-mail ou en base de données, branchez un service (Formspree, Supabase, fonction serverless…) dans `onSubmit`.

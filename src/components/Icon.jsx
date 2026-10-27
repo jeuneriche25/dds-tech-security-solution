@@ -66,6 +66,17 @@ const PATHS = {
   nav: <path d="M3 11l18-8-8 18-2-8z" />,
   star: <path d="M12 2l3 7 7 .6-5.4 4.7 1.7 7.2L12 17.8l-6.3 3.7 1.7-7.2L2 9.6 9 9z" />,
   menu: <path d="M4 7h16M4 12h16M4 17h16" />,
+  close: <path d="M6 6l12 12M18 6L6 18" />,
+  prev: <path d="M15 5l-7 7 7 7" />,
+  next: <path d="M9 5l7 7-7 7" />,
+  play: <path d="M8 5l11 7-11 7z" />,
+  image: (
+    <>
+      <rect x="3" y="4" width="18" height="16" rx="2.5" />
+      <circle cx="9" cy="10" r="1.6" />
+      <path d="M21 16l-5-5-8 8" />
+    </>
+  ),
   check: <path d="M5 13l4 4L19 7" />,
 }
 
