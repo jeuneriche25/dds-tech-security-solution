@@ -1,47 +1,51 @@
-# DDS Tech & Security — site vitrine
+# DDS Tech & Security — site vitrine et espace client
 
-Site vitrine one-page en React, Vite et Tailwind CSS (mode sombre, verre dépoli, accents bleu électrique et cyan).
+Site vitrine de DDS Tech & Security, avec un espace client (devis, interventions, projets, paramètres), une connexion et une inscription.
 
-## Démarrage
+Stack : React 18, Vite 5, React Router 6, Sass (SCSS modulaire), Supabase (optionnel).
+
+## Démarrer
 
 ```bash
 npm install
-npm run dev       # développement sur http://localhost:5173
-npm run build     # génère le dossier dist/ à publier
-npm run preview   # prévisualise le build
+npm run dev       # développement
+npm run build     # production, dans dist/
+npm run preview   # tester le build
 ```
+
+## Deux modes de fonctionnement
+
+- **Mode démonstration (par défaut)** : sans configuration, les comptes et les données sont enregistrés dans le navigateur du visiteur. Des exemples de devis, d'interventions et de projets sont affichés et signalés « Exemple ».
+- **Mode Supabase** : vrais comptes et vraies données. Pour l'activer :
+  1. Créer un projet sur [supabase.com](https://supabase.com).
+  2. Exécuter le fichier `supabase/schema.sql` dans l'éditeur SQL du projet (tables, règles d'accès et création automatique du profil).
+  3. Copier `.env.example` en `.env.local` et renseigner `VITE_SUPABASE_URL` et `VITE_SUPABASE_ANON_KEY`.
+  4. Sur Netlify, ajouter les mêmes variables dans *Site configuration → Environment variables*, puis relancer un déploiement.
 
 ## Structure
 
 ```
-index.html              Titre, meta SEO, polices
-tailwind.config.js      Couleurs et polices (liées aux variables CSS)
 src/
-  main.jsx              Point d'entrée
-  App.jsx               Assemble les sections
-  index.css             Variables de design (:root) et styles des composants
-  data/content.js       Tout le texte et les données : numéro WhatsApp, services, projets…
   components/
-    Header.jsx          Navigation sticky + menu mobile + bouton « Devis gratuit »
-    Hero.jsx            Badge, titre, CTA, indicateurs, panneau de supervision
-    Expertises.jsx      Grille des 5 pôles (cartes à halo au survol)
-    Realisations.jsx    Portfolio
-    WhyDDS.jsx          « Pourquoi choisir DDS ? » + chaîne de valeur
-    Contact.jsx         Formulaire, WhatsApp, coordonnées
-    Footer.jsx          Identité, liens, mentions légales, copyright
-    WhatsAppFloat.jsx   Bouton WhatsApp flottant
-    GlowCard.jsx        Carte vitrée réutilisable
-    Icon.jsx            Icônes SVG intégrées
+    ui/        composants réutilisables (Icon, Brand, Drawer, StatusPill…)
+    layout/    navbar, pied de page, layout public, sidebar du tableau de bord
+    auth/      garde de route, champ mot de passe
+    home/      sections de la page d'accueil
+  pages/       Home, Login, Signup, NotFound
+  pages/dashboard/  Overview, Quotes, Interventions, Projects, Settings
+  lib/         authentification, accès aux données (demo / supabase), hooks
+  styles/      SCSS : abstracts (variables, mixins), base, layout, components, pages
+  data/        contenu du site (services, réalisations, textes)
+supabase/
+  schema.sql   schéma de la base et règles d'accès (RLS)
 ```
 
-## À personnaliser avant la mise en ligne
+## Styles
 
-1. **Réalisations** (`src/data/content.js`, `PROJECTS`) : chaque projet a une galerie plein écran (flèches, clavier, balayage tactile, vidéo). Pour ajouter des photos, déposez-les en `.webp` ou `.jpg` dans `public/realisations/` (idéalement 1200 px de large, moins de 300 Ko), puis ajoutez une ligne `{ type: 'image', src: R + 'nom.webp', alt: 'Description' }` dans `images` du projet. Pour un nouveau projet, copiez un bloc existant. Les légendes sont à relire et à corriger si besoin.
-2. **Chiffres et certifications** (`STATS`, `WHY`) : vérifiez que « 500+ interventions » et « certifié Hikvision/Dahua » sont justifiables.
-3. **Mentions légales** (`Footer.jsx`) : ajoutez vos informations d'immatriculation (NINEA, RCCM, etc.).
-4. **Formulaire** (`Contact.jsx`) : il prépare un message WhatsApp, rien n'est envoyé automatiquement. Pour recevoir les demandes par e-mail ou en base de données, branchez un service (Formspree, Supabase, fonction serverless…) dans `onSubmit`.
-5. **Panneau du hero** : remplaçable par une vraie photo d'installation.
+Les styles sont en SCSS, découpés par rôle. Les couleurs, polices et points de rupture sont définis dans `src/styles/abstracts/_variables.scss`. Les points de rupture utilisent les mixins `md-up` (768 px) et `lg-up` (1024 px).
 
-## Déploiement
+## Déploiement Netlify
 
-Le dossier `dist/` est statique : Netlify, Vercel, Cloudflare Pages ou n'importe quel hébergement web conviennent.
+- Commande de build : `npm run build`
+- Dossier publié : `dist`
+- Les routes sont redirigées vers `index.html` grâce à `public/_redirects`.

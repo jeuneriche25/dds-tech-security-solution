@@ -1,0 +1,404 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Structure : sidebar fixe sur ordinateur, tiroir sur téléphone
+.dash {
+  min-height: 100dvh;
+
+  @include lg-up {
+    display: grid;
+    grid-template-columns: 264px minmax(0, 1fr);
+  }
+
+  &__topbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 16px;
+    background: rgba(11, 19, 34, 0.9);
+    border-bottom: 1px solid $line;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    @include lg-up {
+      display: none;
+    }
+  }
+
+  &__main {
+    min-width: 0;
+    padding-block: 1.5rem 4rem;
+    @include gutter-x;
+
+    @include md-up {
+      padding-block: 2.25rem 4rem;
+    }
+
+    @include lg-up {
+      padding-inline: 2.5rem;
+      padding-block: 2.5rem 4rem;
+    }
+  }
+}
+
+.side {
+  display: none;
+
+  @include lg-up {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100dvh;
+    padding: 1.25rem;
+    background: $surface;
+    border-right: 1px solid $line;
+  }
+
+  &__nav {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: $radius-sm;
+    border: 1px solid transparent;
+    color: $muted;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+
+    &:hover {
+      color: $fg;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    &.is-active {
+      color: $fg;
+      background: rgba(34, 211, 238, 0.1);
+      border-color: rgba(34, 211, 238, 0.28);
+
+      .icon {
+        color: $aqua;
+      }
+    }
+  }
+
+  &__section {
+    @include mono-label;
+    font-size: 0.62rem;
+    color: $muted;
+    padding: 0 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  &__foot {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: auto;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    min-width: 0;
+    border-radius: $radius-sm;
+    background: $glass;
+    border: 1px solid $line;
+
+    > div {
+      min-width: 0;
+    }
+
+    strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+
+    span {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.75rem;
+      color: $muted;
+    }
+  }
+
+  &__brand {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+.drawer__panel .side__nav {
+  margin-top: 0.5rem;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #fff;
+  background: linear-gradient(135deg, $volt, #0fa8d6);
+}
+
+// En-tête des pages du tableau de bord
+.hello {
+  margin-bottom: 2rem;
+
+  &__title {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    letter-spacing: -0.02em;
+  }
+
+  &__sub {
+    margin-top: 0.4rem;
+    color: $muted;
+  }
+}
+
+// Indicateurs
+.kpis {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  @include md-up {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.kpi {
+  @include glass;
+  padding: 1.25rem;
+
+  &__label {
+    font-size: 0.85rem;
+    color: $muted;
+  }
+
+  &__value {
+    margin-top: 0.35rem;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__hint {
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: $muted;
+  }
+}
+
+// Cartes de contenu
+.grid-2 {
+  display: grid;
+  gap: 1.25rem;
+  align-items: start;
+
+  @include lg-up {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+.card {
+  @include glass;
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  min-width: 0;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  &__link {
+    font-size: 0.85rem;
+    color: $aqua;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Lignes de liste (devis, interventions, projets)
+.rows {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem;
+  min-width: 0;
+  border-radius: 12px;
+  border: 1px solid $line;
+  background: rgba(255, 255, 255, 0.02);
+
+  &__main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  &__meta {
+    margin-top: 0.2rem;
+    font-size: 0.82rem;
+    color: $muted;
+    overflow-wrap: anywhere;
+  }
+
+  &__side {
+    display: grid;
+    justify-items: end;
+    gap: 0.35rem;
+    flex: none;
+  }
+
+  &__text {
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+    color: $muted;
+    white-space: pre-line;
+  }
+
+  &__progress {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: $muted;
+  }
+
+  &__progress-head {
+    display: flex;
+    justify-content: space-between;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.date-block {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  flex: none;
+  width: 3.25rem;
+  padding: 0.45rem 0;
+  border-radius: 12px;
+  text-align: center;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+
+  &__day {
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  &__month {
+    @include mono-label;
+    font-size: 0.6rem;
+    color: $muted;
+    margin-top: 0.2rem;
+  }
+}
+
+// Formulaires du tableau de bord
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.inline-form {
+  @include glass;
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+
+  @include md-up {
+    padding: 1.5rem;
+  }
+}
+
+.notice {
+  padding: 0.7rem 0.9rem;
+  border-radius: $radius-sm;
+  font-size: 0.9rem;
+  color: $aqua;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid $line-strong;
+
+  &--ok {
+    color: $ok;
+    background: rgba(52, 211, 153, 0.08);
+    border-color: rgba(52, 211, 153, 0.35);
+  }
+}
+
+.fine-print {
+  font-size: 0.8rem;
+  color: $muted;
+}
+
+.dash-page-foot {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: $muted;
+}

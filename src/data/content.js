@@ -27,7 +27,12 @@ export const STATS = [
   { label: 'Hikvision · Dahua · Full-Stack', value: 'Certifié' },
 ]
 
-export const CAMS = ['CAM 01 · ENTRÉE', 'CAM 02 · ACCUEIL', 'CAM 03 · ENTREPÔT', 'CAM 04 · PARKING']
+export const CAMS = [
+  { scene: 'entree', label: 'CAM 01 · ENTRÉE' },
+  { scene: 'accueil', label: 'CAM 02 · ACCUEIL' },
+  { scene: 'entrepot', label: 'CAM 03 · ENTREPÔT' },
+  { scene: 'parking', label: 'CAM 04 · PARKING' },
+]
 
 export const SERVICES = [
   {
@@ -35,35 +40,36 @@ export const SERVICES = [
     title: 'Développement Web & Mobile',
     text: 'SaaS, e-commerce et applications sur-mesure en React et Node. Des interfaces rapides et un code facile à faire évoluer.',
     tags: ['React', 'Node', 'SaaS', 'E-commerce'],
-    span: 'lg:col-span-2',
+    cols: 2,
   },
   {
     icon: 'shield',
     title: 'Vidéosurveillance & Sécurité',
     text: 'Caméras IP et PoE Hikvision et Dahua, enregistreurs NVR, consultation à distance depuis votre téléphone.',
     tags: ['Hikvision', 'Dahua', 'NVR', 'Accès distant'],
-    span: 'lg:col-span-2',
+    cols: 2,
   },
   {
     icon: 'wifi',
     title: 'Réseaux & WiFi Pro',
     text: 'Configuration de routeurs, pose de bornes WiFi et infrastructures réseau fiables pour bureaux, commerces et sites.',
     tags: ['Routeurs', 'Bornes WiFi', 'Câblage'],
-    span: 'lg:col-span-2',
+    cols: 2,
   },
   {
     icon: 'wrench',
     title: 'Maintenance Informatique & Matériel',
     text: 'Contrats préventifs et curatifs pour les entreprises : un parc informatique suivi et des pannes traitées rapidement.',
     tags: ['Préventif', 'Curatif', 'Contrats entreprises'],
-    span: 'lg:col-span-3',
+    cols: 3,
   },
   {
     icon: 'phone',
     title: 'Réparation de Smartphones & Électronique',
     text: "Diagnostic avancé, réparation de cartes mères et remplacement d'écrans pour vos appareils.",
     tags: ['Diagnostic', 'Cartes mères', 'Écrans'],
-    span: 'md:col-span-2 lg:col-span-3',
+    cols: 3,
+    wideMd: true,
   },
 ]
 
@@ -78,7 +84,7 @@ export const PROJECTS = [
     title: 'La Marmite Dorée',
     text: 'Site haut de gamme pour un restaurant-traiteur, conçu pour valoriser ses menus et ses prestations.',
     tags: ['Site web', 'Design premium', 'Traiteur'],
-    span: 'lg:col-span-3',
+    cols: 3,
     images: [
       { type: 'image', src: R + 'marmite-doree.webp', pos: '50% 50%', alt: 'Visuel des plats du restaurant-traiteur La Marmite Dorée' },
       { type: 'image', src: R + 'marmite-facade.webp', pos: '50% 25%', alt: 'Devanture du restaurant La Marmite Dorée' },
@@ -90,7 +96,7 @@ export const PROJECTS = [
     title: "Vidéosurveillance d'une boutique",
     text: "Caméras IP posées à l'extérieur et à l'intérieur, câbles protégés sous goulotte et affichage des caméras sur un écran de supervision.",
     tags: ['Caméras IP', 'Câblage', 'Supervision'],
-    span: 'lg:col-span-3',
+    cols: 3,
     images: [
       { type: 'image', src: R + 'boutique-camera-auvent.webp', pos: '50% 43%', alt: "Caméra IP fixée sous l'auvent de la boutique" },
       { type: 'image', src: R + 'boutique-facade.webp', pos: '50% 20%', alt: 'Façade de la boutique équipée' },
@@ -105,7 +111,7 @@ export const PROJECTS = [
     title: "Vidéosurveillance d'un magasin",
     text: "Caméras dôme au plafond et écran de supervision à quatre vues pour surveiller les rayons et l'entrée.",
     tags: ['Caméras dôme', '4 vues', 'Supervision'],
-    span: 'lg:col-span-2',
+    cols: 2,
     images: [
       { type: 'image', src: R + 'magasin-camera-dome.webp', pos: '50% 20%', alt: 'Caméra dôme fixée au plafond au-dessus des rayons' },
       { type: 'image', src: R + 'magasin-supervision.webp', pos: '50% 45%', alt: 'Écran de supervision affichant quatre caméras' },
@@ -125,7 +131,7 @@ export const PROJECTS = [
     title: 'SunuTraffic',
     text: 'Application de navigation avec trafic en temps réel pour les trajets quotidiens à Dakar.',
     tags: ['Mobile', 'Temps réel', 'Cartographie'],
-    span: 'lg:col-span-2',
+    cols: 2,
   },
   {
     id: 'affiche',
@@ -133,7 +139,8 @@ export const PROJECTS = [
     title: 'Affiche DDS Tech & Security',
     text: "Identité visuelle et affiche des services de développement web et mobile de DDS.",
     tags: ['Identité', 'Affiche', 'Web & mobile'],
-    span: 'md:col-span-2 lg:col-span-2',
+    cols: 2,
+    wideMd: true,
     images: [
       { type: 'image', src: R + 'dds-affiche.webp', pos: '50% 0%', alt: 'Affiche DDS Tech & Security : développement web et mobile' },
     ],

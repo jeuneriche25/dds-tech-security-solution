@@ -1,0 +1,30 @@
+// Jetons de design : modifiez les couleurs et polices ici, tout le site suit.
+
+$bg: #060a13;
+$surface: #0b1322;
+$surface-2: #101a2f;
+$line: rgba(125, 170, 255, 0.16);
+$line-strong: rgba(80, 200, 255, 0.4);
+$glass: rgba(255, 255, 255, 0.045);
+
+$fg: #e9effc;
+$muted: #98a6c4;
+
+$volt: #2f6bff;
+$volt-2: #1f56e0;
+$aqua: #22d3ee;
+$wa: #25d366;
+$warn: #fbbf24;
+$ok: #34d399;
+$bad: #ff8a8a;
+
+$radius: 16px;
+$radius-sm: 10px;
+$container-max: 76rem;
+
+$font-display: 'Sora', system-ui, sans-serif;
+$font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+$font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+$bp-md: 768px;
+$bp-lg: 1024px;

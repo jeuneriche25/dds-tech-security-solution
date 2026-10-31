@@ -1,5 +1,5 @@
-import Icon from './Icon.jsx'
-import { SITE, waLink } from '../data/content.js'
+import Icon from '../ui/Icon.jsx'
+import { SITE, waLink } from '../../data/content.js'
 
 export default function WhatsAppFloat() {
   return (
@@ -10,7 +10,7 @@ export default function WhatsAppFloat() {
       rel="noopener noreferrer"
       aria-label="Écrire à DDS sur WhatsApp"
     >
-      <Icon name="chat" className="ic" />
+      <Icon name="chat" />
       <span>WhatsApp</span>
     </a>
   )

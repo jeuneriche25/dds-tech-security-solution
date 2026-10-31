@@ -1,0 +1,9 @@
+// Point d'entrée des styles. L'ordre compte : fondations, puis composants, puis pages.
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+@use 'base/base';
+@use 'layout/layout';
+@use 'components/components';
+@use 'pages/home';
+@use 'pages/auth';
+@use 'pages/dashboard';
