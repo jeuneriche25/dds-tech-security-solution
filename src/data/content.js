@@ -102,7 +102,7 @@ export const PROJECTS = [
       { type: 'image', src: R + 'boutique-facade.webp', pos: '50% 20%', alt: 'Façade de la boutique équipée' },
       { type: 'image', src: R + 'boutique-camera-dome.webp', pos: '50% 35%', alt: "Caméra dôme dans l'angle d'une pièce, câble sous goulotte" },
       { type: 'image', src: R + 'boutique-camera-angle.webp', pos: '50% 40%', alt: "Caméra extérieure fixée dans l'angle de l'auvent" },
-      { type: 'image', src: R + 'boutique-supervision.webp', pos: '50% 30%', alt: 'Écran de supervision avec les caméras en direct' },
+      { type: 'image', src: R + 'boutique-supervision.webp', pos: '50% 30%', alt: 'Écran de supervision avec les caméras (images floutées pour la confidentialité)' },
     ],
   },
   {
@@ -114,7 +114,8 @@ export const PROJECTS = [
     cols: 2,
     images: [
       { type: 'image', src: R + 'magasin-camera-dome.webp', pos: '50% 20%', alt: 'Caméra dôme fixée au plafond au-dessus des rayons' },
-      { type: 'image', src: R + 'magasin-supervision.webp', pos: '50% 45%', alt: 'Écran de supervision affichant quatre caméras' },
+      { type: 'image', src: R + 'magasin-supervision.webp', pos: '50% 45%', alt: 'Écran de supervision à quatre caméras (images floutées pour la confidentialité)' },
+      { type: 'image', src: R + 'magasin-selfie.webp', pos: '50% 30%', alt: 'Intervention sur site : vérification du système de vidéosurveillance' },
       {
         type: 'video',
         src: R + 'magasin-presentation.mp4',
@@ -143,6 +144,8 @@ export const PROJECTS = [
     wideMd: true,
     images: [
       { type: 'image', src: R + 'dds-affiche.webp', pos: '50% 0%', alt: 'Affiche DDS Tech & Security : développement web et mobile' },
+      { type: 'image', src: R + 'affiche-cameras.webp', pos: '50% 0%', alt: 'Affiche : installation de caméras de surveillance à Dakar' },
+      { type: 'image', src: R + 'affiche-services-h24.webp', pos: '50% 0%', alt: 'Affiche des services DDS : réparation, développement, maintenance, réseau et caméras' },
     ],
   },
 ]
