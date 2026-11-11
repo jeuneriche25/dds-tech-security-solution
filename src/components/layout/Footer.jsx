@@ -39,7 +39,7 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <div>
+          <div className="footer__contact">
             <p className="footer__title">Contact</p>
             <ul className="footer__links">
               <li>

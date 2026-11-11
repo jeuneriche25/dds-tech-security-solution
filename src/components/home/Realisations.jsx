@@ -35,7 +35,7 @@ export default function Realisations() {
             return (
               <GlowCard
                 key={p.id}
-                className={`project${p.wideMd ? ' project--wide-md' : ''}`}
+                className={`project${p.cols >= 3 ? ' project--wide' : ''}`}
                 style={{ '--span': p.cols }}
               >
                 {hasMedia ? (

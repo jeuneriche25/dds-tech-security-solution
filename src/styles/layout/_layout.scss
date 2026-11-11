@@ -8,18 +8,18 @@
 }
 
 .section {
-  padding-block: 4rem;
+  padding-block: 2.5rem;
   border-top: 1px solid $line;
 
   @include md-up {
-    padding-block: 6rem;
+    padding-block: 4rem;
   }
 
   &--tight {
-    padding-block: 2.5rem;
+    padding-block: 1.5rem;
 
     @include md-up {
-      padding-block: 3.5rem;
+      padding-block: 2.5rem;
     }
   }
 
@@ -35,7 +35,11 @@
     display: grid;
     gap: 0.75rem;
     max-width: 42rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.75rem;
+
+    @include md-up {
+      margin-bottom: 2.25rem;
+    }
   }
 
   &__lead {
@@ -266,17 +270,17 @@
 
 // Pied de page
 .footer {
-  padding: 3.5rem 0 6rem;
+  padding: 2.5rem 0 3.5rem;
   background: $surface;
   border-top: 1px solid $line;
 
   &__grid {
     display: grid;
-    gap: 2.5rem;
-    grid-template-columns: 1fr;
+    gap: 2rem 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
     @include md-up {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     @include lg-up {
@@ -285,9 +289,22 @@
   }
 
   &__about {
+    grid-column: 1 / -1;
     display: grid;
     gap: 1rem;
     align-content: start;
+
+    @include lg-up {
+      grid-column: auto;
+    }
+  }
+
+  &__contact {
+    grid-column: 1 / -1;
+
+    @include md-up {
+      grid-column: auto;
+    }
   }
 
   &__slogan {
@@ -328,7 +345,7 @@
   }
 
   &__legal {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid $line;
     color: $muted;

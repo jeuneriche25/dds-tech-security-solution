@@ -141,7 +141,6 @@ export const PROJECTS = [
     text: "Identité visuelle et affiche des services de développement web et mobile de DDS.",
     tags: ['Identité', 'Affiche', 'Web & mobile'],
     cols: 2,
-    wideMd: true,
     images: [
       { type: 'image', src: R + 'dds-affiche.webp', pos: '50% 0%', alt: 'Affiche DDS Tech & Security : développement web et mobile' },
       { type: 'image', src: R + 'affiche-cameras.webp', pos: '50% 0%', alt: 'Affiche : installation de caméras de surveillance à Dakar' },
