@@ -31,7 +31,10 @@ export default function Overview() {
   return (
     <>
       <header className="hello">
-        <h1 className="hello__title">Bonjour {firstName(user?.fullName, user?.email)}</h1>
+        <p className="hello__eyebrow">Espace client</p>
+        <h1 className="hello__title">
+          Bonjour <span className="grad-text">{firstName(user?.fullName, user?.email)}</span>
+        </h1>
         <p className="hello__sub">Voici l'état de vos demandes, interventions et projets.</p>
       </header>
 
@@ -41,27 +44,45 @@ export default function Overview() {
         <>
           <div className="kpis">
             <div className="kpi">
-              <p className="kpi__label">Devis en cours</p>
+              <div className="kpi__top">
+                <p className="kpi__label">Devis en cours</p>
+                <span className="kpi__icon" aria-hidden="true">
+                  <Icon name="file" size="sm" />
+                </span>
+              </div>
               <p className="kpi__value">{openQuotes.length}</p>
               <p className="kpi__hint">
                 {newQuotes.length ? `dont ${newQuotes.length} en attente de réponse` : 'Aucune demande en attente'}
               </p>
             </div>
             <div className="kpi">
-              <p className="kpi__label">Interventions planifiées</p>
+              <div className="kpi__top">
+                <p className="kpi__label">Interventions planifiées</p>
+                <span className="kpi__icon" aria-hidden="true">
+                  <Icon name="calendar" size="sm" />
+                </span>
+              </div>
               <p className="kpi__value">{planned.length}</p>
               <p className="kpi__hint">
                 {next ? `Prochaine ${relativeDay(next.scheduledAt)}` : 'Rien de prévu pour le moment'}
               </p>
             </div>
             <div className="kpi">
-              <p className="kpi__label">Avancement moyen</p>
+              <div className="kpi__top">
+                <p className="kpi__label">Avancement moyen</p>
+                <span className="kpi__icon" aria-hidden="true">
+                  <Icon name="folder" size="sm" />
+                </span>
+              </div>
               <p className="kpi__value">{average}%</p>
               <p className="kpi__hint">
                 {activeProjects.length
                   ? `sur ${activeProjects.length} projet${activeProjects.length > 1 ? 's' : ''} en cours`
                   : 'Aucun projet en cours'}
               </p>
+              <div className="kpi__bar">
+                <ProgressBar value={average} label="Avancement moyen des projets en cours" />
+              </div>
             </div>
           </div>
 
