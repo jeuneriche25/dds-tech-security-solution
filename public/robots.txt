@@ -3,3 +3,5 @@ Allow: /
 Disallow: /espace
 Disallow: /connexion
 Disallow: /inscription
+
+Sitemap: https://dds-tech-security.netlify.app/sitemap.xml

@@ -358,6 +358,7 @@
 .row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.9rem;
   padding: 0.9rem;
   min-width: 0;
@@ -371,8 +372,9 @@
     border-color: rgba(34, 211, 238, 0.3);
   }
 
+  // Sur petit écran, le statut passe sous le titre au lieu de le serrer
   &__main {
-    flex: 1;
+    flex: 1 1 11rem;
     min-width: 0;
   }
 
